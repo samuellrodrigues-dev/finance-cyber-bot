@@ -1,0 +1,8 @@
+# Pastas pesadas do Python e Node
+__pycache__/
+venv/
+.env
+node_modules/
+.next/
+.DS_Store
+*.sqlite
