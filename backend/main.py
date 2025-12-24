@@ -5,6 +5,17 @@ from sqlalchemy.orm import Session
 from database import Base, engine, SessionLocal, Transaction
 import re
 import httpx # Biblioteca para falar com o Telegram
+import os
+from dotenv import load_dotenv
+load_dotenv() # Carrega as variáveis do arquivo .env
+
+# Pega o token do arquivo .env (se não achar, avisa o erro)
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+
+if not TELEGRAM_TOKEN:
+    raise ValueError("ERRO: O Token do Telegram não foi encontrado no arquivo .env")
+
+TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
 
 # --- CONFIGURAÇÃO DO TELEGRAM ---
 # Cole o token que o BotFather te deu aqui entre aspas!
